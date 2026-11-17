@@ -61,11 +61,14 @@ export default function Navbar({ currentPage }) {
               </span>
             )}
           </button>
-          <a href={buildWhatsAppUrl(greeting)} target="_blank" rel="noopener noreferrer" className={buttonClass('primary', 'sm', 'hidden h-11 sm:inline-flex')}>
-            <MessageCircle className="h-4 w-4" aria-hidden="true" />
-            <span className="lg:hidden xl:inline">Order on WhatsApp</span>
-            <span className="hidden lg:inline xl:hidden">WhatsApp</span>
-          </a>
+          {/* Wrapper controls visibility: buttonClass() already sets inline-flex, which would override `hidden`. */}
+          <div className="hidden sm:block">
+            <a href={buildWhatsAppUrl(greeting)} target="_blank" rel="noopener noreferrer" className={buttonClass('primary', 'sm', 'h-11')}>
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              <span className="lg:hidden xl:inline">Order on WhatsApp</span>
+              <span className="hidden lg:inline xl:hidden">WhatsApp</span>
+            </a>
+          </div>
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}

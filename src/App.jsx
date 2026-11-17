@@ -17,9 +17,9 @@ import { useHashRoute } from './utils/router'
 
 const pages = {
   home: { component: Home, title: `${businessConfig.name} | Homemade Nigerian Meals in Abuja` },
-  menu: { component: Menu, title: `Our Menu — Soups, Stews, Sauces & Drinks | ${businessConfig.name}` },
-  services: { component: Services, title: `Our Services — Weekend Cooking, Fridge Restocking & Private Chef | ${businessConfig.name}` },
-  catering: { component: Catering, title: `Event Catering in Abuja | ${businessConfig.name}` },
+  menu: { component: Menu, title: `Our Menu — Nigerian Soups, Stews, Sauces, Meals & Drinks | ${businessConfig.name}` },
+  services: { component: Services, title: `Our Services — Pre-order Meals, Fridge Restocking, Home Cooking & Small-Event Catering | ${businessConfig.name}` },
+  catering: { component: Catering, title: `Small-Event Catering in Abuja | ${businessConfig.name}` },
   about: { component: About, title: `About Us | ${businessConfig.name}` },
   contact: { component: Contact, title: `Contact Us | ${businessConfig.name}` },
 }

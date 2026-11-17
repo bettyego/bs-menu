@@ -45,9 +45,10 @@ export default function Footer() {
             <div className="mt-8"><FooterHeading>Services</FooterHeading></div>
             <ul className="mt-4 space-y-2.5">
               {services.map((service) => (
-                <li key={service.id}><a className={linkClass} href={href('services', { service: service.id })}>{service.title}</a></li>
+                <li key={service.id}>
+                  <a className={linkClass} href={service.link ? href(service.link.page) : href('services', { service: service.id })}>{service.title}</a>
+                </li>
               ))}
-              <li><a className={linkClass} href={href('catering')}>Event Catering</a></li>
             </ul>
           </div>
         </div>

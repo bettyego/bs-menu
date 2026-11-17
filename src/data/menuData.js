@@ -12,7 +12,8 @@
  * • Replace a photo: put the file in /public/images/menu/ and set
  *     image: '/images/menu/egusi.jpg'
  * • Hide an item temporarily: available: false (shows "Currently unavailable").
- * • Featured on the homepage: featured: true.
+ * • Featured on the homepage and at the top of the menu page: featured: true.
+ *   (Weekly menu, best sellers and bundles are set in src/data/contentData.js.)
  * • Add a new item: copy an existing block, give it a unique `id`, and set its `category`
  *   to one of the category ids below.
  *
@@ -25,9 +26,9 @@ const unsplash = (id) => `https://images.unsplash.com/photo-${id}?auto=format&fi
 export const categories = [
   { id: 'soups', name: 'Soups', blurb: 'Rich, homemade Nigerian soups, sold mainly by the litre.', image: unsplash('1645066804237-08145dd196e9'), imageAlt: 'A bowl of Nigerian pepper soup with fish' },
   { id: 'stews', name: 'Stews', blurb: 'Classic stews with your choice of protein.', image: unsplash('1665332398215-825114bbb355'), imageAlt: 'Nigerian stew served with white rice and plantain' },
-  { id: 'sauces', name: 'Sauces', blurb: 'Flavourful sauces for rice, yam, plantain and more.', image: unsplash('1740707591344-ee3feb4d06c5'), imageAlt: 'Meat simmered in a rich sauce' },
+  { id: 'sauces', name: 'Sauces', blurb: 'Flavourful sauces for rice, yam, plantain and more.', image: unsplash('1631292784640-2b24be784d5d'), imageAlt: 'Chicken sauce with peppers in a pan' },
   { id: 'other-meals', name: 'Other Meals', blurb: 'More Nigerian and African favourites.' },
-  { id: 'drinks', name: 'Drinks', blurb: 'Homemade drinks, including our zobo.', image: unsplash('1593624191635-f1a49f5eca76'), imageAlt: 'A glass of hibiscus drink beside dried hibiscus petals' },
+  { id: 'drinks', name: 'Drinks', blurb: 'Zobo, fresh juices and other nutritious drinks — ask what’s available.', image: unsplash('1593624191635-f1a49f5eca76'), imageAlt: 'A glass of hibiscus drink beside dried hibiscus petals' },
   { id: 'combos', name: 'Combos & Packages', blurb: 'Family meals, weekend packages and bundles.' },
 ]
 

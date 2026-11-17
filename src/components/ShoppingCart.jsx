@@ -98,7 +98,7 @@ function CartDrawer({ details, setDetails }) {
           <div className="flex flex-1 flex-col items-center justify-center px-6 text-center">
             <div className="grid h-16 w-16 place-items-center rounded-full bg-lavender text-brand"><ShoppingBag className="h-7 w-7" aria-hidden="true" /></div>
             <h3 className="mt-4 font-display text-2xl">Your order is empty</h3>
-            <p className="mt-2 text-sm text-muted">Browse our soups, stews, sauces and drinks to get started.</p>
+            <p className="mt-2 text-sm text-muted">Browse our menu to get started, or ask us on WhatsApp what’s cooking.</p>
             <a href={href('menu')} onClick={closeCart} className={buttonClass('primary', 'md', 'mt-6')}>Explore Our Menu</a>
           </div>
         ) : (

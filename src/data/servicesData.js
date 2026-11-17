@@ -1,70 +1,96 @@
 /**
- * B's Menu services. Edit titles, descriptions and photos here.
+ * B's Menu services — edit titles, descriptions and bullet points here.
+ * Photos are set in src/data/images.js (serviceImages), keyed by the service `id`.
  * Services are quoted individually — no fixed prices are shown.
- * ⚠️ Photos are temporary stock images — replace with real B's Menu photos.
+ *
+ * Optional `link`: sends the main button to another page instead of the enquiry form
+ * (e.g. Pre-order Meals → the menu, Small-Event Catering → the catering page).
+ * `icon` must be one of the names in src/utils/serviceIcons.js.
  */
-const unsplash = (id) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=1000&h=750&q=75`
+import { serviceImages } from './images'
+
+const withImage = (service) => ({ ...service, image: serviceImages[service.id]?.src, imageAlt: serviceImages[service.id]?.alt ?? service.title })
 
 export const services = [
   {
-    id: 'weekend-cooking',
-    title: 'Weekend Cooking',
-    icon: 'CalendarDays',
+    id: 'pre-order-meals',
+    title: 'Pre-order Meals',
+    tagline: 'Freshly cooked for your chosen date.',
+    icon: 'ShoppingBag',
     description:
-      'Let B’s Menu prepare meals for your home over the weekend, so your family can enjoy good food without spending the weekend in the kitchen.',
-    points: ['Meals planned around your household', 'Soups, stews and sauces for the week ahead', 'Arranged ahead on pre-order'],
-    image: unsplash('1653233797467-1a528819fd4f'),
-    imageAlt: 'Fresh tomatoes and vegetables being chopped on a wooden board',
-  },
-  {
-    id: 'bulk-cooking',
-    title: 'Bulk Home Cooking',
-    icon: 'CookingPot',
-    description:
-      'Need large quantities? Request soups, stews, sauces and other meals in bulk for your household, family gatherings or freezer stock.',
-    points: ['Larger quantities of your favourites', 'Choose your proteins and portions', 'Quoted to your requirements'],
-    image: unsplash('1694579740719-0e601c5d2437'),
-    imageAlt: 'A large pan of chicken stew being stirred with a wooden spoon',
+      'Order freshly prepared Nigerian meals ahead of time — soups, stews, sauces, rice dishes and other home-cooked meals, cooked for the day you need them.',
+    details:
+      'Order from our menu or ask what we’re cooking this week, then send your order on WhatsApp. We confirm availability, delivery and payment with you before anything is prepared.',
+    points: ['Soups, stews, sauces, rice dishes and more', 'Choose your size and protein', 'Confirmed with you on WhatsApp'],
+    link: { page: 'menu', label: 'Order from the menu' },
   },
   {
     id: 'fridge-restocking',
     title: 'Fridge Restocking',
+    tagline: 'Open the fridge to homemade food.',
     icon: 'Refrigerator',
     description:
-      'We prepare and pack meals, soups and stews so your fridge or freezer stays stocked with ready-to-eat and ready-to-use homemade food.',
-    points: ['Neatly packed, ready-to-store portions', 'A mix of soups, stews and sauces', 'Ideal for busy homes and professionals'],
-    image: unsplash('1609915437016-85693e56470f'),
-    imageAlt: 'Home-cooked food portioned into storage containers',
+      'We prepare soups, stews, sauces and other meals and pack them so your fridge or freezer stays stocked with ready-to-eat homemade food.',
+    details:
+      'Tell us what your household enjoys and we’ll cook a mix of meals packed in ready-to-store portions, so busy days still end with a proper home-cooked meal. Restock once, or arrange it regularly with us.',
+    points: ['Soups, stews, sauces and other meals', 'Neatly packed, ready-to-store portions', 'Ideal for busy homes and professionals'],
   },
   {
-    id: 'private-chef',
-    title: 'Private Chef Services',
+    id: 'home-cooking',
+    title: 'Home Cooking',
+    tagline: 'Fresh meals, cooked in your home.',
     icon: 'ChefHat',
     description:
-      'Have meals prepared for you based on your needs, preferences and arrangements — for your home, a special dinner or an ongoing schedule.',
-    points: ['Menus tailored to your preferences', 'For individuals, families and special occasions', 'Arrangements discussed one-on-one'],
-    image: unsplash('1577219491135-ce391730fb2c'),
-    imageAlt: 'A chef carefully preparing a dish in a kitchen',
+      'We prepare fresh meals in your home for you and your family — for the weekend, a special meal or a regular arrangement.',
+    details:
+      'Tell us who you’re cooking for, what your household enjoys and when you need us, and we’ll plan the meals with you. Every arrangement is discussed with you one-on-one.',
+    points: ['Fresh meals cooked in your home', 'Menus planned around your household', 'Arranged with you one-on-one'],
   },
-]
+  {
+    id: 'food-prep-delivery',
+    title: 'Food Preparation & Delivery',
+    tagline: 'Cooked for you, brought to you.',
+    icon: 'Truck',
+    description:
+      'Prefer your food cooked and brought to you? We prepare the meals you need and arrange delivery or pickup.',
+    details:
+      'Good for family orders, stocking up for the week or when you’re hosting at home. Choose the meals and quantities and we’ll quote for your exact order. Delivery charges are confirmed with you based on your location.',
+    points: ['Meals and quantities to suit you', 'Delivery or pickup in Abuja', 'Quoted for your exact order'],
+  },
+  {
+    id: 'fresh-drinks',
+    title: 'Fresh Drinks',
+    tagline: 'Refreshing, homemade and nourishing.',
+    icon: 'CupSoda',
+    description: 'Zobo, fresh juices and other nutritious drinks, made fresh on pre-order.',
+    details:
+      'Add drinks to a meal order, stock up for the week or order for a gathering. Ask us which drinks are available when you order.',
+    points: ['Zobo, fresh juices and more', 'Made fresh on pre-order', 'For homes, offices and gatherings'],
+  },
+  {
+    id: 'small-event-catering',
+    title: 'Small-Event Catering',
+    tagline: 'Good food for smaller gatherings.',
+    icon: 'PartyPopper',
+    description:
+      'Homemade food for birthdays, office meetings, office celebrations, get-togethers and similar small gatherings.',
+    details:
+      'We focus on smaller events, where good home-cooked food makes the occasion. Tell us your date, guest count and the meals you’d like, and we’ll send you a quotation.',
+    points: ['Birthdays and get-togethers', 'Office meetings and celebrations', 'Quoted for each event'],
+    link: { page: 'catering', label: 'Request a catering quote' },
+  },
+].map(withImage)
 
+/** Options for the "Event type" field on the catering quote form. */
 export const cateringEventTypes = [
-  'Mini birthday party',
+  'Birthday celebration',
+  'Office meeting',
+  'Office celebration',
+  'Get-together',
   'House party',
   'Family celebration',
-  'Intimate gathering',
-  'Social event',
-  'Large event (bulk food)',
-  'Other',
+  'Other small gathering',
 ]
 
-export const cateringImages = {
-  hero: { src: unsplash('1722477936580-84aa10762b0b'), alt: 'Buffet chafing dishes filled with rice and stews at an event' },
-  buffet: { src: unsplash('1555244162-803834f70033'), alt: 'An elegant buffet table with a variety of dishes' },
-  party: { src: unsplash('1664992960082-0ea299a9c53e'), alt: 'Party jollof rice topped with grilled chicken skewers' },
-}
-
-export const siteImages = {
-  hero: { src: 'https://images.unsplash.com/photo-1665332195309-9d75071138f0?auto=format&fit=crop&w=1400&h=1100&q=80', alt: 'Nigerian jollof rice served with grilled fish, chicken skewers and fresh peppers' },
-  about: { src: unsplash('1665332561290-cc6757172890'), alt: 'Plates of Nigerian stew served with rice' },
-}
+// Photos moved to src/data/images.js — re-exported here so existing imports keep working.
+export { cateringImages, siteImages } from './images'

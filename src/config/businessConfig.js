@@ -9,7 +9,7 @@ export const businessConfig = {
   name: "B's Menu",
   tagline: 'Homemade Goodness, Made for Your Table.',
   shortDescription:
-    "Freshly prepared Nigerian and African home-cooked meals in Abuja — soups, stews, sauces and drinks on pre-order, plus cooking, catering and private chef services.",
+    "Freshly prepared Nigerian home-cooked meals in Abuja — soups, stews, sauces, rice dishes and fresh drinks on pre-order, plus fridge restocking, home cooking and small-event catering.",
 
   /**
    * WhatsApp number in INTERNATIONAL format: country code + number,
